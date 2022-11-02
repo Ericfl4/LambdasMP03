@@ -1,4 +1,4 @@
-package a2;
+package lambdas;
 
 public class Cotxe {
     String marca;

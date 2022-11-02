@@ -1,4 +1,4 @@
-package a2;
+package lambdas;
 
 import java.time.LocalDate;
 import java.time.Period;
