@@ -3,7 +3,7 @@ package lambdas;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-//pene
+
 public class ExerciciL {
 
     public static void main(String[] args) {
