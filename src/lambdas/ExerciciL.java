@@ -3,7 +3,7 @@ package lambdas;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-
+//pene
 public class ExerciciL {
 
     public static void main(String[] args) {
@@ -26,7 +26,9 @@ public class ExerciciL {
         Map<Integer,Integer> mapPersones = new HashMap<>();
 
         // 1 - Canviar a lambda
-        System.out.println("\n1-2");
+        System.out.println("___________________________________________________");
+        System.out.println("1-2"+'\n');
+
 
 
         Collections.sort(llista_persones, new Comparator<Persona>() {
@@ -54,8 +56,8 @@ public class ExerciciL {
         llista_persones.forEach(persona -> System.out.println(persona.getAge()));
 
         // 3 - Canvia a classe anònima
-
-        System.out.println("\n3-4");
+        System.out.println("___________________________________________________");
+        System.out.println("3-4"+'\n');
 
         //ordenació alfabètica inversa del nom
 
@@ -87,14 +89,15 @@ public class ExerciciL {
         llista_persones.forEach(Persona -> mapPersones.put(Persona.getAge(),1));
 
         // 6 - Canvia per un bucle forEach amb lambda
-        System.out.println("\n5");
+        System.out.println("___________________________________________________");
+        System.out.println("5"+'\n');
 
 
         for(Map.Entry entry : mapPersones.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
 
-        mapPersones.forEach((entry,persona)->System.out.println(entry + " : " + persona));;
+        mapPersones.forEach((entry,persona)->System.out.println(entry + " : " + persona));
 
 
 
@@ -116,33 +119,41 @@ public class ExerciciL {
          */
 
         // 8 - llistat de persones DONA amb lambda (stream)
-
-        // llista_persones.stream().filter(persona -> persona.getGenere(Persona.Genere.DONA));
-
-
-
-
-
-
-
+        System.out.println("___________________________________________________");
+        System.out.println("8"+'\n');
+        llista_persones.stream().filter(persona -> persona.getGenere()==(Persona.Genere.DONA)).forEach(System.out::println);
 
 
         // 9 - Llistat dels dos HOMES més joves (stream)
 
+        System.out.println("___________________________________________________");
+        System.out.println("9"+'\n');
+        llista_persones.stream().filter(persona -> persona.getGenere().equals(Persona.Genere.HOME))
+                .sorted((Persona per1, Persona per2) -> Integer.compare(per1.getAge(), per2.getAge())).limit(2).forEach(System.out::println);
+
+
         // 10- Esborrar (no filtrar o imprimir) del llistat les persones entre 30 i 40 anys (amb lambda)
+        System.out.println("___________________________________________________");
+        System.out.println("10"+'\n');
+
+        llista_persones.removeIf(persona -> persona.getAge()>=30&&persona.getAge()<=40);
 
         // 11 - Persones que tinguin una 'a' al seu nom
-        System.out.println("\n11 Amb una 'A'");
+        System.out.println("___________________________________________________");
+        System.out.println("11"+'\n');
+
+        llista_persones.stream().filter(persona -> persona.getNom().contains("a")).forEach(System.out::println);
 
         //12 - Llistat de les dates de naixament + dos dies
-        System.out.println("\n12 - dates amb dos dies més");
+        System.out.println("___________________________________________________");
+        System.out.println("12"+'\n');
 
+        llista_persones.stream().forEach(persona -> System.out.println(persona.getDataNaixament().plusDays(2)));
 
         //13 - Rejovenir dos anys a totes les persones
-        System.out.println("\n13 - Rejovenir dos anys a totes les persones");
+        System.out.println("___________________________________________________");
+        System.out.println("13"+'\n');
 
-
+        llista_persones.stream().forEach(persona -> persona.setDataNaixament(persona.getDataNaixament().minusYears(2)));
     }
-
-
 }
