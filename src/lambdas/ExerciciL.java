@@ -155,5 +155,6 @@ public class ExerciciL {
         System.out.println("13"+'\n');
 
         llista_persones.stream().forEach(persona -> persona.setDataNaixament(persona.getDataNaixament().plusYears(2)));
+        llista_persones.stream().forEach(persona -> System.out.println(persona));
     }
 }
